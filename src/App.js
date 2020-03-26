@@ -21,6 +21,8 @@ class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+
+    if (!this.state.item) return;
     
     const newItem = {
       id: this.state.id,
@@ -53,8 +55,6 @@ class App extends Component {
   handleEdit = id => {
     const filteredItems = this.state.items.filter(item => item.id !== id);
     const selectedItem = this.state.items.find(item => item.id === id);
-
-    console.log(selectedItem);
 
     this.setState({
       items: filteredItems,
